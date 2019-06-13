@@ -18,6 +18,8 @@ package main
 //Input: [1,8,6,2,5,4,8,3,7]
 //Output: 49
 
+//方法1，采用两次循环
+//方法2，采用双指针法，但是还没有想明白这样会得到最佳值
 func maxArea(height []int) int {
 	var max int
 	var curArea int
