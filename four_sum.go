@@ -1,6 +1,8 @@
 package main
 
-import "sort"
+import (
+	"sort"
+)
 
 //https://leetcode-cn.com/problems/4sum/
 //
@@ -40,9 +42,17 @@ func fourSum(nums []int, target int) [][]int {
 
 	var res [][]int
 	for i := 0; i <= len(nums)-4; i++ {
-		for j := i + 1; j < len(nums)-3; j++ {
+		if i > 0 && nums[i] == nums[i-1] {
+			continue
+		}
+
+		for j := i + 1; j <= len(nums)-3; j++ {
 			rest := target - (nums[i] + nums[j])
-			start, end := i+2, len(nums)-1
+			start, end := j+1, len(nums)-1
+
+			if j > i+1 && nums[j] == nums[j-1] {
+				continue
+			}
 
 			if nums[start]+nums[start+1] > rest {
 				continue
@@ -53,6 +63,15 @@ func fourSum(nums []int, target int) [][]int {
 			}
 
 			for start < end {
+				if start > j+1 && nums[start] == nums[start-1] {
+					start++
+					continue
+				}
+				if end < len(nums)-1 && nums[end] == nums[end+1] {
+					end--
+					continue
+				}
+
 				if rest == nums[start]+nums[end] {
 					res = append(res, []int{nums[i], nums[j], nums[start], nums[end]})
 					start++
