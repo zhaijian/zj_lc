@@ -1,5 +1,7 @@
 package main
 
+//https://leetcode-cn.com/problems/n-queens-ii/
+
 func totalNQueens(n int) int {
 	rowMap := map[int]int{}
 	colMap := map[int]int{}
