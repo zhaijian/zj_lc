@@ -54,6 +54,7 @@ func intToRoman(num int) string {
 	var i int
 	for i < len(nums) {
 		if num >= nums[i] {
+			num -= nums[i]
 			res += symbols[i]
 		} else {
 			i++
