@@ -24,6 +24,7 @@ package math
 // 1 <= a.length, b.length <= 10^4
 // 字符串如果不是 "0" ，就都不含前导零。
 
+// 注意byte不能参与加减，10进制才支持
 func addBinary(a string, b string) string {
 	length := len(a) + 1
 	if len(a) < len(b) {
